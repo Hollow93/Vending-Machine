@@ -1,72 +1,16 @@
-<p align="center"><img src="https://res.cloudinary.com/dtfbvvkyp/image/upload/v1566331377/laravel-logolockup-cmyk-red.svg" width="400"></p>
+##Техническое задание на разработку виртуального аппарата по продаже кофе (Vending Machine)
 
-<p align="center">
-<a href="https://travis-ci.org/laravel/framework"><img src="https://travis-ci.org/laravel/framework.svg" alt="Build Status"></a>
-<a href="https://packagist.org/packages/laravel/framework"><img src="https://poser.pugx.org/laravel/framework/d/total.svg" alt="Total Downloads"></a>
-<a href="https://packagist.org/packages/laravel/framework"><img src="https://poser.pugx.org/laravel/framework/v/stable.svg" alt="Latest Stable Version"></a>
-<a href="https://packagist.org/packages/laravel/framework"><img src="https://poser.pugx.org/laravel/framework/license.svg" alt="License"></a>
-</p>
+Смоделировать работу VM по продаже кофе, чая и т.д. реализовать описанные сценарии работы. Предоставить архив с исходным кодом. Сценарии Использования:
+Система показывает кошелек пользователя (кол-во монет разного достоинства) 1 руб = 10 штук (начальные данные) 2 руб = 30 штук 5 руб = 20 штук 10 руб = 15 штук
 
-## About Laravel
+Система показывает ассортимент товаров для продажи, стоимость и остаток товара Чай = 13 руб, 10 порций. (начальные данные) Кофе = 18 руб, 20 порций. Кофе с молоком = 21 руб, 20 порций. Сок = 35 руб = 15 порций.
 
-Laravel is a web application framework with expressive, elegant syntax. We believe development must be an enjoyable and creative experience to be truly fulfilling. Laravel takes the pain out of development by easing common tasks used in many web projects, such as:
+Система показывает кошелек VM для сдачи (кол-во монет разного достоинства) 1 руб = 100 штук (начальные данные) 2 руб = 100 штук 5 руб = 100 штук 10 руб = 100 штук
 
-- [Simple, fast routing engine](https://laravel.com/docs/routing).
-- [Powerful dependency injection container](https://laravel.com/docs/container).
-- Multiple back-ends for [session](https://laravel.com/docs/session) and [cache](https://laravel.com/docs/cache) storage.
-- Expressive, intuitive [database ORM](https://laravel.com/docs/eloquent).
-- Database agnostic [schema migrations](https://laravel.com/docs/migrations).
-- [Robust background job processing](https://laravel.com/docs/queues).
-- [Real-time event broadcasting](https://laravel.com/docs/broadcasting).
+Пользователь может внести монеты в монетоприемник VM нажав на монету (или кнопку "внести" рядом с соответствующей монетой) в своем кошелке. При этом кол-во монет в кошелке пользователя соответствущего достоинства должно измениться. VM должна обновить поле "Внесенная сумма".
 
-Laravel is accessible, powerful, and provides tools required for large, robust applications.
+Пользователь может запросить назад остаток внесенной суммы нажав кнопку "Сдача" на VM При этом кол-во монет в кошелке пользователя должно измениться. VM должна обновить поле "Внесенная сумма".
 
-## Learning Laravel
+Внесенная сумма возвращается целиком, при этом сумма возвращается наименьшим кол-вом монет. (напр: 23 руб = 2 х 10 руб + 1 х 2 руб + 1 х 1 руб). При этом возможно изменение кол-во монет в кошелке VM.
 
-Laravel has the most extensive and thorough [documentation](https://laravel.com/docs) and video tutorial library of all modern web application frameworks, making it a breeze to get started with the framework.
-
-If you don't feel like reading, [Laracasts](https://laracasts.com) can help. Laracasts contains over 1500 video tutorials on a range of topics including Laravel, modern PHP, unit testing, and JavaScript. Boost your skills by digging into our comprehensive video library.
-
-## Laravel Sponsors
-
-We would like to extend our thanks to the following sponsors for funding Laravel development. If you are interested in becoming a sponsor, please visit the Laravel [Patreon page](https://patreon.com/taylorotwell).
-
-- **[Vehikl](https://vehikl.com/)**
-- **[Tighten Co.](https://tighten.co)**
-- **[Kirschbaum Development Group](https://kirschbaumdevelopment.com)**
-- **[64 Robots](https://64robots.com)**
-- **[Cubet Techno Labs](https://cubettech.com)**
-- **[Cyber-Duck](https://cyber-duck.co.uk)**
-- **[British Software Development](https://www.britishsoftware.co)**
-- **[Webdock, Fast VPS Hosting](https://www.webdock.io/en)**
-- **[DevSquad](https://devsquad.com)**
-- [UserInsights](https://userinsights.com)
-- [Fragrantica](https://www.fragrantica.com)
-- [SOFTonSOFA](https://softonsofa.com/)
-- [User10](https://user10.com)
-- [Soumettre.fr](https://soumettre.fr/)
-- [CodeBrisk](https://codebrisk.com)
-- [1Forge](https://1forge.com)
-- [TECPRESSO](https://tecpresso.co.jp/)
-- [Runtime Converter](http://runtimeconverter.com/)
-- [WebL'Agence](https://weblagence.com/)
-- [Invoice Ninja](https://www.invoiceninja.com)
-- [iMi digital](https://www.imi-digital.de/)
-- [Earthlink](https://www.earthlink.ro/)
-- [Steadfast Collective](https://steadfastcollective.com/)
-- [We Are The Robots Inc.](https://watr.mx/)
-- [Understand.io](https://www.understand.io/)
-- [Abdel Elrafa](https://abdelelrafa.com)
-- [Hyper Host](https://hyper.host)
-
-## Contributing
-
-Thank you for considering contributing to the Laravel framework! The contribution guide can be found in the [Laravel documentation](https://laravel.com/docs/contributions).
-
-## Security Vulnerabilities
-
-If you discover a security vulnerability within Laravel, please send an e-mail to Taylor Otwell via [taylor@laravel.com](mailto:taylor@laravel.com). All security vulnerabilities will be promptly addressed.
-
-## License
-
-The Laravel framework is open-source software licensed under the [MIT license](https://opensource.org/licenses/MIT).
+Пользователь может купить товар нажав на товар (или на кнопку рядом с соответствующим товаром) на VM Если стоимость товара <= "Внесенной суммы" товар выдается пользователю, "Внесенная сумма" уменьшается на цену товара и сумма зачисляется в кошелек VM (см. п. 3). Пользователю показывается MessageBox с текстом "Спасибо!" Если стоимость товара > "Внесенной суммы" пользователю выдается MessageBox с текстом "Недостаточно средств" Пользователь может повторить действия над аппаратом в любой последовательности в рамках стандартной логики для подобной машины.
