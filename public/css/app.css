@@ -10661,7 +10661,7 @@ button {
   font-size: 9pt;
 }
 
-#panel_left {
+#block_left {
   float: left;
   width: 600px;
   overflow: hidden;
@@ -10671,7 +10671,7 @@ button {
   -moz-border-radius: 5px;
 }
 
-#panel_right {
+#block_right {
   float: left;
   width: 300px;
   margin-left: 20px;
@@ -10681,7 +10681,7 @@ button {
   padding-bottom: 5px;
 }
 
-.viewpanel {
+.viewblock {
   display: inline-block;
   width: 200px;
   padding: 5px;
@@ -10693,7 +10693,7 @@ button {
   text-align: center;
 }
 
-.sub_panel_inserted_coin {
+.sub_block_inserted_coin {
   background-color: #dbf5ff;
   padding: 10px;
   text-align: center;
@@ -10703,14 +10703,14 @@ button {
   -moz-border-radius: 5px;
 }
 
-.sub_panel_insert_button,
-.sub_panel_vm_wallet {
+.sub_block_insert_button,
+.sub_block_vm_wallet {
   padding: 5px;
   text-align: center;
   line-height: 25px;
 }
 
-.sub_panel_message_title {
+.sub_block_message_title {
   padding: 7px;
   margin-bottom: 5px;
   background-color: #eee;
