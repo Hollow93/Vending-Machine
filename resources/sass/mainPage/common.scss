@@ -1,0 +1,74 @@
+body {
+  font: normal 9pt arial, Gulim;
+  line-height: 12pt;
+}
+
+textarea {
+  font-size: 9pt;
+}
+
+input[type$='button'] {
+  font-size: 9pt;
+}
+
+button {
+  font-size: 9pt;
+}
+
+#panel_left {
+  float: left;
+  width: 600px;
+  overflow: hidden;
+  padding: 10px 0;
+  border-radius: 5px;
+  -webkit-border-radius: 5px;
+  -moz-border-radius: 5px;
+}
+
+#panel_right {
+  float: left;
+  width: 300px;
+  margin-left: 20px;
+}
+
+.padbottom {
+  padding-bottom: 5px;
+}
+
+.viewpanel {
+  display: inline-block;
+  width: 200px;
+  padding: 5px;
+  margin-left: 10%;
+  margin-top: 10px;
+}
+
+.center {
+  text-align: center;
+}
+
+.sub_panel_inserted_coin {
+  background-color: #dbf5ff;
+  padding: 10px;
+  text-align: center;
+  font: bold 10pt arial;
+  border-radius: 5px;
+  -webkit-border-radius: 5px;
+  -moz-border-radius: 5px;
+}
+
+.sub_panel_insert_button, .sub_panel_vm_wallet {
+  padding: 5px;
+  text-align: center;
+  line-height: 25px;
+}
+
+.sub_panel_message_title {
+  padding: 7px;
+  margin-bottom: 5px;
+  background-color: #eee;
+  font: bold 9pt arial;
+  border-radius: 5px;
+  -webkit-border-radius: 5px;
+  -moz-border-radius: 5px;
+}
