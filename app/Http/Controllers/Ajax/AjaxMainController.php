@@ -9,8 +9,15 @@ use App\Http\Controllers\Controller;
 class AjaxMainController extends Controller
 {
 
+    /**
+     * @var AjaxHandler
+     */
     private $ajaxHandler;
 
+    /**
+     * AjaxMainController constructor.
+     * @param AjaxHandler $ajaxHandler
+     */
     public function __construct(AjaxHandler $ajaxHandler)
     {
         $this->ajaxHandler = $ajaxHandler;

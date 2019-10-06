@@ -10,12 +10,30 @@ use App\Http\Controllers\Controller;
 
 class MainPageController extends Controller
 {
-
+    /**
+     * @var Products
+     */
     private $products;
+    /**
+     * @var ClientMoney
+     */
     private $clientMoney;
+    /**
+     * @var VendingMachineMoney
+     */
     private $vendingMachineMoney;
+    /**
+     * @var CurrentBalances
+     */
     private $currentBalance;
 
+    /**
+     * MainPageController constructor.
+     * @param Products $products
+     * @param ClientMoney $clientMoney
+     * @param VendingMachineMoney $vendingMachineMoney
+     * @param CurrentBalances $currentBalance
+     */
     public function __construct(
         Products $products,
         ClientMoney $clientMoney,
