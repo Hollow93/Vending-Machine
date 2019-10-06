@@ -28,6 +28,6 @@ class CreateCurrentBalancesTable extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('current_balance');
+        Schema::dropIfExists('current_balances');
     }
 }

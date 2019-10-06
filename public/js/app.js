@@ -37000,8 +37000,23 @@ function ajaxClickButtons() {
       'X-CSRF-Token': $('meta[name="csrf-token"]').attr('content')
     },
     success: function success(data) {
-      $("#msg").html(data.msg);
-      console.log('ok'); // $('#addArticle').modal('hide');
+      if (data.action === 'update') {
+        console.log(data.query);
+
+        for (var i = 0; i < data.query.length; i++) {
+          if (typeof (i + 1) != "undefined" && i + 1 !== null) {
+            if (i & 1) {
+              continue;
+            } else {
+              $("#" + data.query[i]).html(data.query[i + 1]);
+            }
+          }
+        }
+
+        $("#msg").html(data.message);
+      } else {
+        $("#msg").html(data.message);
+      } // $('#addArticle').modal('hide');
       //
       // $('#articles-wrap').removeClass('hidden').addClass('show');
       //
@@ -37014,6 +37029,7 @@ function ajaxClickButtons() {
       //     '</td><td><a href="/article/'+data['id']+'" class="delete" data-delete="'+data['id']+'">Удалить</a></td></tr>';
       //
       // $('.table > tbody:last').append(str);
+
     },
     error: function error(msg) {
       alert('Ошибка');

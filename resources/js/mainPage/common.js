@@ -8,8 +8,25 @@ function ajaxClickButtons() {
             'X-CSRF-Token': $('meta[name="csrf-token"]').attr('content')
         },
         success: function (data) {
-            $("#msg").html(data.msg);
-            console.log('ok');
+
+            if(data.action === 'update'){
+                console.log(data.query);
+                for (let i=0; i<data.query.length; i++){
+
+                    if(typeof(i+1) != "undefined" && (i+1) !== null) {
+                        if(i & 1){
+                            continue;
+                        }else{
+                            $("#"+data.query[i]).html(data.query[i+1]);
+                        }
+                    }
+                }
+
+                $("#msg").html(data.message);
+            }else{
+                $("#msg").html(data.message);
+            }
+
 
             // $('#addArticle').modal('hide');
             //

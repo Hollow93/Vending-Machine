@@ -7,7 +7,7 @@
             </div>
             <div class="center padbottom">
                 {{ $product->name }}<br/>
-                <span class="item_amount"> Кол-во:{{ $product->amount }}</span><br/>
+                <span class="item_amount" id="productAmount{{$i}}"> Кол-во:{{ $product->amount }}</span><br/>
                 Цена {{ $product->price }} руб.
             </div>
             <div class="center padbottom">
