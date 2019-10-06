@@ -11,6 +11,8 @@
 |
 */
 
-Route::get('/', function () {
-    return view('main.index');
-});
+//Route::get('/', function () {
+//    return view('main.index');
+//});
+Route::get('/','MainPage\MainPageController');
+Route::post('/ajaxMainEvent','Ajax\AjaxMainController');
