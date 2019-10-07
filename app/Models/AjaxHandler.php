@@ -34,7 +34,7 @@ class AjaxHandler extends Model
                 $response = $this->initializeIntroductionMoney($request);
                 break;
             case 'change':
-                $response = $this->initializeReturnMoney($request);
+                $response = $this->initializeReturnMoney();
                 break;
             default:
                 $response = "got incorrect button";
@@ -62,9 +62,8 @@ class AjaxHandler extends Model
         $recordBalancesDeposited = CurrentBalances::find(3);
         $recordProduct = Products::find($request{7});
 
-        if($recordBalancesDeposited->summary == 0 or $recordProduct->price > $recordBalancesDeposited->summary){
-            $data['action'] = 'error';
-            $data['message'] = 'Внесено недостаточно средств для покупки';
+        if($recordBalancesDeposited->summary == 0 or $recordProduct->price > $recordBalancesDeposited->summary or $recordProduct->amount == 0){
+            $data = $this->getErrorMessage($recordProduct, $data);
         }else{
             $data = $this->editDepositSummary($recordBalancesDeposited, $recordProduct, $data);
             $data = $this->editProductAmount($request, $recordProduct, $data);
@@ -456,6 +455,22 @@ class AjaxHandler extends Model
 
         $data['action'] = 'update';
         $data['message'] = 'Возврат успешен';
+        return $data;
+    }
+
+    /**
+     * @param $recordProduct
+     * @param $data
+     * @return mixed
+     */
+    public function getErrorMessage($recordProduct, $data)
+    {
+        if ($recordProduct->amount == 0) {
+            $data['message'] = 'Выбранный товар закончился';
+        } else {
+            $data['message'] = 'Внесено недостаточно средств для покупки';
+        }
+        $data['action'] = 'error';
         return $data;
     }
 
