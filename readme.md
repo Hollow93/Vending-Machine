@@ -24,5 +24,6 @@
 3. composer update
 4. php artisan key:generate
 5. create DB with name established in .env (matching - utf8mb4_unicode_ci)
-6. php artisan migrate:refresh --seed
-7. profit!
+6. php artisan migrate:install
+7. php artisan migrate:refresh --seed
+8. profit!
